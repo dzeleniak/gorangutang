@@ -15,5 +15,6 @@ func main() {
 
 	fmt.Printf("Hello %s...\n\nWelcome to Gorangutang\n", user.Username)
 
-	repl.Start(os.Stdin, os.Stdout)
+	repl.StartLexer(os.Stdin, os.Stdout)
+
 }
