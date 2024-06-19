@@ -183,9 +183,7 @@ func (p *Parser) parseFunctionParameters() []*ast.Identifier {
 
 func (p *Parser) parseCallExpression(function ast.Expression) ast.Expression {
 	exp := &ast.CallExpression{Token: p.curToken, Function: function}
-
 	exp.Arguments = p.parseCallArguments()
-
 	return exp
 }
 
@@ -197,6 +195,7 @@ func (p *Parser) parseCallArguments() []ast.Expression {
 		return args
 	}
 
+	p.nextToken()
 	args = append(args, p.parseExpression(LOWEST))
 
 	for p.peekTokenIs(token.COMMA) {
